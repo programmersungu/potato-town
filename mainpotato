@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>칭찬 페이지</title>
+</head>
+<body style="text-align:center; padding:30px; font-family:sans-serif;">
+  <h2>당신을 위한 랜덤 칭찬</h2>
+  <input type="text" id="nameInput" placeholder="이름을 입력하세요" style="padding:8px; font-size:16px;">
+  <button onclick="generateCompliment()" style="padding:8px 16px; font-size:16px;">칭찬받기</button>
+  <p id="complimentOutput" style="margin-top:20px; font-size:18px; font-weight:bold;"></p>
+
+  <script>
+    function generateCompliment() {
+      const name = document.getElementById("nameInput").value.trim();
+      const output = document.getElementById("complimentOutput");
+
+      if (!name) {
+        output.textContent = "이름을 먼저 입력해주세요!";
+        return;
+      }
+
+      const compliments = [
+        `${name}님, 오늘 너무 멋져요!`,
+        `${name}님은 존재 자체가 반짝여요 ✨`,
+        `${name}님 덕분에 세상이 더 밝아졌어요.`,
+        `${name}님, 충분히 잘하고 있어요 :)`,
+        `${name}님은 세상에서 하나뿐인 보물이죠!`
+      ];
+
+      const randomIndex = Math.floor(Math.random() * compliments.length);
+      output.textContent = compliments[randomIndex];
+    }
+  </script>
+</body>
+</html>
